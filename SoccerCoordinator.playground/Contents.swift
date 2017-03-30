@@ -3,12 +3,12 @@
 // Storing each players data in their own collection
 
 
-let player1: [String: String] = ["NAME": "Joe Smith", "HEIGHT": "42", "EXP": "Yes", "GUARDIAN": "Jim and Jan Smith"]
-let player2: [String: String] = ["NAME": "Jill Tanner", "HEIGHT": "36", "EXP": "Yes", "GUARDIAN": "Clara Tanner"]
-let player3: [String: String] = ["NAME": "Bill Bon", "HEIGHT": "43", "EXP": "Yes", "GUARDIAN": "Sara and Jenny Bon"]
-let player4: [String: String] = ["NAME": "Eva Gordon", "HEIGHT": "45", "EXP": "No", "GUARDIAN": "Wendy and Mike Gordon"]
-let player5: [String: String] = ["NAME": "Matt Gill", "HEIGHT": "40", "EXP": "No", "GUARDIAN": "Charles and Sylvia Gill"]
-let player6: [String: String] = ["NAME": "Kimmy Stein", "HEIGHT": "41", "EXP": "No", "GUARDIAN": "Bill and Hilary Stein"]
+let player1: [String: Any] = ["NAME": "Joe Smith", "HEIGHT": "42", "EXP": "Yes", "GUARDIAN": "Jim and Jan Smith"]
+let player2: [String: Any] = ["NAME": "Jill Tanner", "HEIGHT": "36", "EXP": "Yes", "GUARDIAN": "Clara Tanner"]
+let player3: [String: Any] = ["NAME": "Bill Bon", "HEIGHT": "43", "EXP": "Yes", "GUARDIAN": "Sara and Jenny Bon"]
+let player4: [String: Any] = ["NAME": "Eva Gordon", "HEIGHT": "45", "EXP": "No", "GUARDIAN": "Wendy and Mike Gordon"]
+let player5: [String: Any] = ["NAME": "Matt Gill", "HEIGHT": "40", "EXP": "No", "GUARDIAN": "Charles and Sylvia Gill"]
+let player6: [String: Any] = ["NAME": "Kimmy Stein", "HEIGHT": "41", "EXP": "No", "GUARDIAN": "Bill and Hilary Stein"]
 let player7: [String: String] = ["NAME": "Sammy Adams", "HEIGHT": "45", "EXP": "No", "GUARDIAN": "Jeff Adams"]
 let player8: [String: String] = ["NAME": "Karl Saygan", "HEIGHT": "42", "EXP": "Yes", "GUARDIAN": "Heather Bledsoe"]
 let player9: [String: String] = ["NAME": "Suzane Greenberg", "HEIGHT": "44", "EXP": "Yes", "GUARDIAN": "Henrietta Dumas"]
@@ -24,7 +24,7 @@ let player18: [String: String] = ["NAME": "Herschel Krustofski", "HEIGHT": "45",
 
 // One collection for all players data
 
-var players = [player1, player2, player3, player4, player5, player6, player7, player8, player9, player10, player11, player12, player13, player14, player15, player16, player17, player18]
+var players = [player1, player2, player3, player4, player5, player6] //, player7, player8, player9, player10, player11, player12, player13, player14, player15, player16, player17, player18]
 
 /*
  ---------------------------------------------------
@@ -42,16 +42,16 @@ var countSort = 1
 
 // Sorting players into has or hasnot experience containers loop
 while countSort <= counter {
-for object in players {
-    for (key, value) in object {
-    switch value {
-    case "Yes": hasExp.append(object)
-    case "No": noExp.append(object)
-    default: break}
-}
+for player in players {
+    player // FOR TESTING
+    let experiance = player["EXP"] as! String
+    switch experiance {
+    case "Yes": hasExp.append(player)
+    case "No": noExp.append(player)
+    default: break
+        }
     countSort += 1
     }
-    
 }
 
 /*
@@ -94,6 +94,10 @@ teamSharks
 teamDragons
 teamRaptors
 
+teamSharks.count
+teamDragons.count
+teamRaptors.count
+
 /* 
 -----------------------
  logic to print letter
@@ -102,8 +106,9 @@ teamRaptors
 
 // testing printing data from teams, if you remove the below above code does work
 
-for object in teamDragons {
-    for (key, value) in object {
-        print(key[YES])
-    }
+for eachPlayer in teamDragons {
+    eachPlayer
+    let playerName = eachPlayer["NAME"] as! String
+    print(playerName)
 }
+
